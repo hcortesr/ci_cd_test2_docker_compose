@@ -1,0 +1,18 @@
+
+services:
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=qqq
+    networks:
+      - net2
+
+  client:
+    image: mysql
+    command: ["mysql", "-h", "db", "-u", "root", "-p"]
+    networks:
+      - net2
+
+networks:
+  net2:
+    driver: bridge
