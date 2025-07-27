@@ -1,11 +1,23 @@
 
 services:
   db:
-    image: mysql
+    image: mysql:9.4.0-oraclelinux9
     environment:
       - MYSQL_ROOT_PASSWORD=qqq
     networks:
       - net2
+
+  frontend:
+    image: nginx:1.29.0-alpine3.22-slim
+    networks:
+      - net2
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
+
+    ports:
+      - 80:80
+
+  
 
 networks:
   net2:
