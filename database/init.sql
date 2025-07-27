@@ -1,48 +1,24 @@
--- Create the database
-CREATE DATABASE club_de_cuervos;
-USE club_de_cuervos;
+-- 1. Create the database
+CREATE DATABASE IF NOT EXISTS football;
+USE football;
 
--- Players table
-CREATE TABLE players (
+-- 2. Create the clubs table
+CREATE TABLE IF NOT EXISTS clubs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    position VARCHAR(50),
-    age INT,
-    nationality VARCHAR(50)
+    city VARCHAR(100),
+    founded_year INT
 );
 
--- Matches table
-CREATE TABLE matches (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    match_date DATE NOT NULL,
-    opponent VARCHAR(100),
-    home_goals INT,
-    away_goals INT
-);
-
--- Assists table (links players and matches)
-CREATE TABLE assists (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    player_id INT,
-    match_id INT,
-    assists_count INT DEFAULT 0,
-    FOREIGN KEY (player_id) REFERENCES players(id),
-    FOREIGN KEY (match_id) REFERENCES matches(id)
-);
-
--- Insert some players
-INSERT INTO players (name, position, age, nationality) VALUES
-('John Smith', 'Forward', 28, 'Mexico'),
-('Luis Gomez', 'Defender', 24, 'Argentina'),
-('Carlos Martinez', 'Goalkeeper', 30, 'Colombia');
-
--- Insert some matches
-INSERT INTO matches (match_date, opponent, home_goals, away_goals) VALUES
-('2025-07-01', 'Tigers', 3, 1),
-('2025-07-15', 'Eagles', 2, 2);
-
--- Insert some assists
-INSERT INTO assists (player_id, match_id, assists_count) VALUES
-(1, 1, 1),
-(2, 1, 0),
-(1, 2, 2);
+-- 3. Insert some Mexican football clubs
+INSERT INTO clubs (name, city, founded_year) VALUES
+('Club América', 'Mexico City', 1916),
+('Chivas Guadalajara', 'Guadalajara', 1906),
+('Cruz Azul', 'Mexico City', 1927),
+('Pumas UNAM', 'Mexico City', 1954),
+('Tigres UANL', 'San Nicolás de los Garza', 1960),
+('CF Monterrey', 'Monterrey', 1945),
+('Santos Laguna', 'Torreón', 1983),
+('Toluca', 'Toluca', 1917),
+('Club León', 'León', 1944),
+('Atlas', 'Guadalajara', 1916);
