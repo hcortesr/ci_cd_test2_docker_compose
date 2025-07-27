@@ -6,6 +6,8 @@ services:
       - MYSQL_ROOT_PASSWORD=qqq
     networks:
       - net2
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
 
   frontend:
     image: nginx:1.29.0-alpine3.22-slim
