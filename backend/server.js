@@ -16,9 +16,17 @@ console.log(pool);
 export async function getClubs() {
     try {
         const res = await pool.query("SELECT * FROM clubs");
-        console.log(res[0]);
+        return res[0];
     } catch (error) {
         console.log("Error: ", error);
         
+    }
+}
+
+export async function postClub(name, city, founded_year) {
+    try {
+        await pool.query("INSERT INTO clubs (name, city, founded_year) VALUES (?, ?, ?)", [name, city, founded_year]);
+    } catch (error) {
+        console.log("Error:", error);
     }
 }

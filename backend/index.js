@@ -1,6 +1,6 @@
 import express from 'express'
 import './server.js'
-import { getClubs } from './server.js';
+import { getClubs, postClub } from './server.js';
 
 const app = express();
 const PORT = 3000;
@@ -11,9 +11,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/data', async (req, res) => {
-    await getClubs();
-    res.send("The query should have worked.");
+    const clubs = await getClubs();
+    res.json(clubs);
 });
+app.post('/set', async (req, res) => {
+    await postClub("asdf, ", "dsvvv", 39889);
+    res.send("It was edited.");
+})
 
 // Start server
 app.listen(PORT, () => {
