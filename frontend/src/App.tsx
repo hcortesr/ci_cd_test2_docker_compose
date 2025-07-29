@@ -13,10 +13,6 @@ function App() {
     .then((res) => setClubs(res));
   }
 
-  const callAPISetClubs = () => {
-
-    fetch("http://localhost:3001/set")
-  }
   const setForm = () => {
     const formData = {
       "name": clubName,
