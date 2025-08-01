@@ -5,7 +5,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 html {
-    background-color: gray;
+    background-color: rgb(208, 208, 208);
     padding-bottom: 50px;
 }
 
@@ -31,16 +31,26 @@ h1 {
 }
 input {
     width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.submit {
+    margin-top: 10px;
 }
 .cont_data {
     margin-top: 50px;
+
 }
 .grid {
-    
     max-width: 350px;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid black
+    
 }
 p {
     text-align: center;

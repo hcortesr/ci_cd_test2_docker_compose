@@ -6,15 +6,9 @@ import cors from 'cors';
 const app = express();
 const PORT = 3000;
 
-
 app.use(cors());
 app.use(express.urlencoded())
 app.use(express.json());
-
-// Basic route
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
 
 app.get('/data', async (req, res) => {
     const clubs = await getClubs();

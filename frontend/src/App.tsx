@@ -25,6 +25,8 @@ function App() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     });
+
+    location.reload();
   }
 
   useEffect(() => {
@@ -51,7 +53,7 @@ function App() {
           <input type="number" name="year_founded" id="f_y" value={year} onChange={(e) => setYear(e.target.value)}/>
         </label>
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className='submit'/>
         
       </form>
     </div>
